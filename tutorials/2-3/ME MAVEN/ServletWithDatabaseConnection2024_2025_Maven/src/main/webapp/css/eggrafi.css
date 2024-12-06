@@ -1,0 +1,265 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General styles for the body */
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradient background from Opening.css */
+    animation: backgroundAnimation 10s ease infinite; /* Background animation from Opening.css */
+    color: #ffffff; /* White text for contrast against dark background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+    50% { background: linear-gradient(135deg, #2a5298, #1e3c72); }
+    100% { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+}
+
+/* Styles for the form container */
+.container {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    animation: slide-in 1s ease-out;
+    margin: auto;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    transition: transform 0.5s;
+}
+
+.container:hover {
+    transform: scale(1.02); /* Slight scaling on hover */
+}
+
+/* Styles for the labels */
+.col-form-label {
+    font-weight: bold;
+    text-align: right;
+    color: #ffffff;
+}
+
+/* Styles for input fields */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent input background */
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Glass effect on inputs */
+}
+
+/* Input fields on focus */
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    border-color: #ffffff;
+}
+
+/* Styles for the submit button */
+.btn-dark {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Submit button on hover */
+.btn-dark:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Styles for the form heading */
+h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    animation: fadeInDown 1s ease forwards;
+}
+
+/* Styles for form-check labels */
+.form-check-label {
+    color: #ffffff;
+}
+
+/* Slide-in animation */
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in-down animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles for the result div */
+#result {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    color: #ffffff;
+}
+
+/* Map styles */
+#map {
+    height: 600px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#resultMessage {
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+/* Styles for the OpenLayers popup */
+.ol-popup {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    min-width: 200px;
+    color: #333333;
+}
+
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ol-popup:after {
+    border-top-color: rgba(255, 255, 255, 0.9);
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+}
+
+.ol-popup-closer:after {
+    content: "✖";
+}
+
+#validateAddressBtn {
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#validateAddressBtn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+#mapContainer iframe {
+    margin-left: 10%;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+/* Adjustments for input buttons */
+#togglePassword, #toggleConfirmPassword {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+#togglePassword:hover, #toggleConfirmPassword:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Checkbox label */
+#agreementLabel {
+    color: #ffffff;
+}
+
+/* Style for the radio buttons */
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+.form-check-label {
+    color: #ffffff;
+}
+
+/* Styles for form group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .col-md-4, .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .col-md-4 {
+        margin-bottom: 10px;
+    }
+
+    .col-form-label {
+        text-align: left;
+    }
+}

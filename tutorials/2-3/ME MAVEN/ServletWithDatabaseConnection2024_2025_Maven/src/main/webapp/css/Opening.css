@@ -1,0 +1,87 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    animation: backgroundAnimation 10s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+    50% { background: linear-gradient(135deg, #2a5298, #1e3c72); }
+    100% { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: transform 0.5s;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+.welcome {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}

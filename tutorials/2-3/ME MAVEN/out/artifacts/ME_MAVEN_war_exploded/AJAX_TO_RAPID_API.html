@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="test">
+    <h2>The XMLHttpRequest Object</h2>
+
+    <button type="button" onclick="loadDoc()">Change Content</button>
+    <div id="demo">
+    </div>
+
+    <script>
+        function loadDoc(){
+            const data= null;
+
+            const xhr = new XMLHttpRequest();
+//xhr.withCredentials = true; // den douleve enallaktika
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    const obj = JSON.parse(xhr.responseText);
+                    var addressDetails=obj[0];
+                    for(var name in addressDetails)
+                        document.getElementById("demo").innerHTML+=name+" "+addressDetails[name]+"<br>";
+                }
+            });
+            var addressName="Chandakos"; //Chandakos
+            var number='20'; //20
+            var city="Athens";
+            var country="Greece";
+            var address=addressName+" "+number+" " +city+" "+country;
+
+
+            xhr.open("GET", "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q="+address+"&accept-language=en&polygon_threshold=0.0");
+
+            xhr.setRequestHeader("x-rapidapi-host", "forward-reverse-geocoding.p.rapidapi.com");
+            var key="3496b7f1famsh8944132ab3b06a4p11e06ejsn232e5e247206"; //YOUR KEY
+            xhr.setRequestHeader("x-rapidapi-key", key);
+
+            xhr.send(data);
+        }
+    </script>
+</div>
+</body>
+</html>
